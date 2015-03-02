@@ -1,0 +1,17 @@
+guard :shell do
+  watch(/(.*)\.txt/) do |matched|
+    `tail #{matched[0]}`
+  end
+end
+
+# group
+# see: https://github.com/guard/guard/wiki/Guardfile-DSL---Configuring-Guard#group
+group :group1 do
+  guard :shell do
+    watch(/.*\.txt/) do
+      puts ''
+      puts 'group1'
+      puts ''
+    end
+  end
+end
