@@ -26,3 +26,7 @@ Export a `db/Schemafile.rb` file from the database.
 
 * [winebarrel/ridgepole](https://github.com/winebarrel/ridgepole)
 * [Railsプロジェクトの初期開発フェーズでのDBスキーマ管理を見直す - TIM Labs](http://labs.timedia.co.jp/2014/10/railsdb.html)
+
+## Memo
+
+See [rails squasher test](../rails_squasher/README.md#memo).
