@@ -1,0 +1,13 @@
+<h1>Values#index</h1>
+<p>Find me in app/views/values/index.html.erb</p>
+
+<%= link_to 'create', values_path, method: :post %>
+
+<ul>
+<% @values.each do |value| %>
+  <li>
+    <p><%= value.value %></p>
+    <%= link_to 'delete', value, method: :delete %>
+  </li>
+<% end %>
+</ul>
