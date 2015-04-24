@@ -3,7 +3,7 @@
 ## Running this projejct
 
 1. Run `bundle install` command
-1. Run `bundle exec rake db:create db:migrate RAILS_ENV=test` command
+1. Run `bundle exec rake db:create db:migrate` command
 1. Run `bundle exec rails s` command
 1. Open [localhost:3000](http://localhost:3000/) by your browser
 
