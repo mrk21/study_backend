@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'peek'
 gem 'peek-git'
 gem 'peek-pg'
+gem 'peek-rblineprof'
 gem 'responders', '~> 2.0'
 
 # Use ActiveModel has_secure_password

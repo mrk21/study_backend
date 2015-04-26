@@ -9,7 +9,8 @@
 
 ## Memo
 
-peek requires responders when Rails version was 4.2. You must add the responders gem shown below to the Gemfile(see: [respond_withとクラスレベルのrespond_toの扱いについて](http://railsguides.jp/4_2_release_notes.html#respond_withとクラスレベルのrespond_toの扱いについて)):
+peek requires responders gem if you used the Rails 4.2; therefore, you must add responders gem shown below to your Gemfile(see: [respond_withとクラスレベルのrespond_toの扱いについて](http://railsguides.jp/4_2_release_notes.html#respond_withとクラスレベルのrespond_toの扱いについて)):
+
 ```
 gem 'responders', '~> 2.0'
 ```
@@ -17,4 +18,7 @@ gem 'responders', '~> 2.0'
 ## See
 
 * [peek/peek](https://github.com/peek/peek)
+* [peek/peek-git](https://github.com/peek/peek-git)
+* [peek/peek-pg](https://github.com/peek/peek-pg)
+* [peek/peek-rblineprof](https://github.com/peek/peek-rblineprof)
 * [Ruby on Rails 4.2 リリースノート — Rails ガイド](http://railsguides.jp/4_2_release_notes.html#respond_withとクラスレベルのrespond_toの扱いについて)
