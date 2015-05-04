@@ -5,7 +5,7 @@
 1. Run `bundle install` command
 1. Run `bundle exec rake db:create db:migrate` command
 1. Create `config/settings.local.yml` file and edit as shown below:
-```
+```yaml
 gmail: 
   username: 'your user name'
   password: 'your password'
