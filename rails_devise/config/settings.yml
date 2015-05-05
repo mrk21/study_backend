@@ -1,4 +1,7 @@
 ---
-gmail:
-  username: ''
-  password: ''
+mailer:
+  gmail:
+    username: ''
+    password: ''
+  reply:
+    address: ''

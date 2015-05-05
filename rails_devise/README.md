@@ -6,9 +6,12 @@
 1. Run `bundle exec rake db:create db:migrate` command
 1. Create `config/settings.local.yml` file and edit as shown below:
 ```yaml
-gmail: 
-  username: 'your user name'
-  password: 'your password'
+mailer:
+  gmail: 
+    username: 'your user name'
+    password: 'your password'
+  reply:
+    address: 'reply address'
 ```
 1. Run `bundle exec rails s` command
 1. Open [localhost:3000](http://localhost:3000/) by your browser
