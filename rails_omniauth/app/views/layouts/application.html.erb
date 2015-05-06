@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsOmniauth</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <article>
+    <header>
+      <% if @current_user %>
+        <p><%= @current_user.name %></p>
+        <%= link_to 'logout', session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'login', '/auth/twitter' %>
+      <% end %>
+    </header>
+    
+    <div>
+      <%= yield %>
+    </div>
+  </article>
+</body>
+</html>
