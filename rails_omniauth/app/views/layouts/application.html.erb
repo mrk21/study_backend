@@ -9,12 +9,18 @@
 <body>
   <article>
     <header>
-      <% if @current_user %>
+      <% if @current_user then %>
         <p><%= @current_user.name %></p>
-        <%= link_to 'logout', session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'login', '/auth/twitter' %>
       <% end %>
+      
+      <menu type="toolbar">
+      <% if @current_user then %>
+        <li><%= link_to 'Sign out', session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to 'Sign in with Twitter', '/auth/twitter' %></li>
+        <li><%= link_to 'Sign in with Facebook', '/auth/facebook' %></li>
+      <% end %>
+      </menu>
     </header>
     
     <div>

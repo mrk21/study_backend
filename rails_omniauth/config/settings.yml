@@ -2,3 +2,6 @@
 twitter:
   consumer_key: ''
   consumer_secret: ''
+facebook:
+  app_key: ''
+  app_secret: ''
