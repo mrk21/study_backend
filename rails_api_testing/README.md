@@ -10,6 +10,8 @@
 1. Run `direnv allow` command
 1. Run `rspec` command
 
+If you set `AUTODOC=1` environment variable when you run `rspec` command, `autodoc` gem will generate the API documentation for examples that specified the `autodoc: ture` option.  When `AUTODOC=1 rspec` command execution has finished, it will be generated to the `doc/api` directory.
+
 ## See
 
 ### Libraries
@@ -28,3 +30,4 @@
 * [Rails でつくる API のテストの書き方（RSpec + FactoryGirl） - 彼女からは、おいちゃんと呼ばれています](http://blog.inouetakuya.info/entry/2013/10/27/200111)
 * [Rails API Testing Best Practices](http://matthewlehner.net/rails-api-testing-guidelines/)
 * [RailsでつくるRESTful APIのrequest specを書く - それはBooks](http://hamasyou.com/blog/2014/02/17/rails-request-rspec/)
+* [Autodoc - r7km/s](http://r7kamura.github.io/2013/12/01/autodoc.html)

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Api::Users", type: :request do
-  describe 'GET /api/users/:id' do
+  describe 'GET /api/users/:id', autodoc: true do
     let(:user) { FactoryGirl.create(:user) }
     let(:id) { self.user.id }
     
