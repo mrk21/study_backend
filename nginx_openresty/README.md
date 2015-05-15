@@ -2,8 +2,8 @@
 
 ## Running this projejct
 
-1. Run `./install` command
-1. Run `./run` command
+1. Run `./install.sh` command
+1. Run `./run.sh` command
 1. Open [localhost:8080](http://localhost:8080/) by your browser
 
 ## See
