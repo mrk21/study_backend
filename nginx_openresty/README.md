@@ -1,0 +1,14 @@
+# nginx openresty
+
+## Running this projejct
+
+1. Run `./install` command
+1. Run `./run` command
+1. Open [localhost:8080](http://localhost:8080/) by your browser
+
+## See
+
+* [openresty/openresty.org](https://github.com/openresty/openresty.org)
+* [OpenResty - a fast web app server by extending nginx](http://openresty.org/)
+* [Nginx Lua 拡張の OpenResty を使って見る (Redis + JSON 編) - Qiita](http://qiita.com/voluntas/items/b37aedc70058c519aa00)
+* [Nginx(OpenResty)でLuaを動かす＋パフォーマンス(ついでにHHVMも) - ゆっくり備忘録](http://mitsuakikawamorita.com/blog/?p=1552)
