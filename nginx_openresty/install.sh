@@ -2,7 +2,6 @@
 
 ROOT=$(pwd)
 mkdir -p ${ROOT}/tmp/logs
-mkdir -p ${ROOT}/vendor
 ln -s ${ROOT} ${ROOT}/tmp/root
 
 cd ${ROOT}/tmp/

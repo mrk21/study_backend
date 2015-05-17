@@ -1,0 +1,3 @@
+[submodule "nginx_openresty/vendor/lua-resty-redis"]
+	path = nginx_openresty/vendor/lua-resty-redis
+	url = https://github.com/openresty/lua-resty-redis.git
