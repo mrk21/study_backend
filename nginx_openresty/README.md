@@ -9,7 +9,16 @@
 
 Other than above path, there also exist on the following:
 
-* `/redis`: Using Redis; needs to boot `redis-server` to local
+### `/redis`
+
+Using Redis; needs to boot `redis-server` to local.
+
+### `/conditional_internal_redirect`
+
+Redirects internally by conditions of query of the request URL.
+
+* Does not redirect internally: [/conditional_internal_redirect](localhost:8080/conditional_internal_redirect)
+* Redirects internally: [/conditional_internal_redirect?internal_redirect](localhost:8080/conditional_internal_redirect?internal_redirect)
 
 ## See
 
@@ -18,7 +27,8 @@ Other than above path, there also exist on the following:
 * [Nginx Lua 拡張の OpenResty を使って見る (Redis + JSON 編) - Qiita](http://qiita.com/voluntas/items/b37aedc70058c519aa00)
 * [OpenResty (nginx + lua) 逆引きメモ - Qiita](http://qiita.com/voluntas/items/e86f5fe5b8044c311583)
 * [Nginx(OpenResty)でLuaを動かす＋パフォーマンス(ついでにHHVMも) - ゆっくり備忘録](http://mitsuakikawamorita.com/blog/?p=1552)
-
+* [NginxとLuaを用いた動的なリバースプロキシでデプロイを 100 倍速くした](http://www.slideshare.net/toshi_pp/devsummit2015)
+* [lua-nginx-module を使いこなす - Qiita](http://qiita.com/kz_takatsu/items/e94805a8e3cc285f9b33)
 
 ### redis
 
