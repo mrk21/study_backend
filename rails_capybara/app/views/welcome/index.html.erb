@@ -1,0 +1,7 @@
+<% if @logged_in then %>
+  <%= link_to 'Sign out', session_path, method: :delete %>
+<% else %>
+  <%= link_to 'Sign in', session_path, method: :post %>
+<% end %>
+
+<p>logged_in: <%= @logged_in %></p>
