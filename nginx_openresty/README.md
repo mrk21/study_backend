@@ -20,6 +20,10 @@ Redirects internally by conditions of query of the request URL.
 * Does not redirect internally: [/conditional_internal_redirect](localhost:8080/conditional_internal_redirect)
 * Redirects internally: [/conditional_internal_redirect?internal_redirect](localhost:8080/conditional_internal_redirect?internal_redirect)
 
+### `/template`
+
+Using template engine.
+
 ## See
 
 * [openresty/openresty.org](https://github.com/openresty/openresty.org)
@@ -33,3 +37,7 @@ Redirects internally by conditions of query of the request URL.
 ### redis
 
 * [openresty/lua-resty-redis](https://github.com/openresty/lua-resty-redis)
+
+### template
+
+* [bungle/lua-resty-template](https://github.com/bungle/lua-resty-template)

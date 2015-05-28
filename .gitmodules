@@ -1,3 +1,6 @@
 [submodule "nginx_openresty/vendor/lua-resty-redis"]
 	path = nginx_openresty/vendor/lua-resty-redis
 	url = https://github.com/openresty/lua-resty-redis.git
+[submodule "nginx_openresty/vendor/lua-resty-template"]
+	path = nginx_openresty/vendor/lua-resty-template
+	url = https://github.com/bungle/lua-resty-template.git
