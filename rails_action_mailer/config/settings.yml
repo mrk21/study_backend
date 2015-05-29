@@ -1,0 +1,7 @@
+mailer:
+  account:
+    user_name: ''
+    password: ''
+  default:
+    from: ''
+    to: ''
