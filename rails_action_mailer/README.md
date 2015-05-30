@@ -36,3 +36,4 @@ config.action_mailer.smtp_settings = {
 ## See
 
 * [真実は吾にあり: BitnamiのRedmineからのメール送信でエラー(SMTP-AUTH requested but missing secret phrase)](http://blog.sincerity.me/2013/12/bitnamiredminesmtp-auth-requested-but.html)
+* [ActionMailer のメール送信テストを RSpec で行う | EasyRamble](http://easyramble.com/test-action-mailer-with-rspec.html)
