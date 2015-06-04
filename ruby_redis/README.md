@@ -5,6 +5,17 @@
 1. Run `bundle install` command
 1. Run `ruby test.rb` command
 
+### pubsub test
+
+If you want to run pubsub test script, you take steps listed below:
+
+1. Run `ruby pubsub.rb` command
+1. Run `redis-cli publish one hello` command
+
+If you want to stop this script, you take steps listed below:
+
+1. Run `redis-cli publish two exit` command
+
 ## See
 
 * [antirez/redis](https://github.com/antirez/redis)
