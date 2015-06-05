@@ -3,7 +3,7 @@
 ## Running this projejct
 
 1. Run `bundle install` command
-1. Run `ruby test.rb` command
+1. Run `ruby benchmark.rb` command
 
 ### pubsub test
 
@@ -15,6 +15,12 @@ If you want to run pubsub test script, you take steps listed below:
 If you want to stop this script, you take steps listed below:
 
 1. Run `redis-cli publish two exit` command
+
+### collection test
+
+If you want to run record collection test script, you take steps listed below:
+
+1. Run `ruby collection.rb` command
 
 ## See
 
