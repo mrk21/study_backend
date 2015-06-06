@@ -34,6 +34,10 @@ Using template engine.
 * [NginxとLuaを用いた動的なリバースプロキシでデプロイを 100 倍速くした](http://www.slideshare.net/toshi_pp/devsummit2015)
 * [lua-nginx-module を使いこなす - Qiita](http://qiita.com/kz_takatsu/items/e94805a8e3cc285f9b33)
 
+### luarocks
+
+* [OpenResty - a fast web app server by extending nginx](http://openresty.org/#UsingLuaRocks)
+
 ### redis
 
 * [openresty/lua-resty-redis](https://github.com/openresty/lua-resty-redis)
