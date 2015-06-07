@@ -24,6 +24,10 @@ Redirects internally by conditions of query of the request URL.
 
 Using template engine.
 
+## Memo
+
+A version of LuaRocks corresponding to OpenResty is 2.0.x; 2.1 or later version does not support.
+
 ## See
 
 * [openresty/openresty.org](https://github.com/openresty/openresty.org)
