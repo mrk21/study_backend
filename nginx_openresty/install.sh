@@ -50,3 +50,8 @@ make -j8 install
 cd ${ROOT}
 alias luarocks='./vendor/openresty/luajit/bin/luarocks'
 luarocks install lua-resty-template
+
+
+# install cpan modules
+sudo cpanm App::Prove
+sudo cpanm Test::Nginx

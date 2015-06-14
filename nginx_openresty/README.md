@@ -3,7 +3,7 @@
 ## Running this projejct
 
 1. Run `git submodule update --init`
-1. Run `./install.sh` command
+1. Run `./install.sh` command(requires `cpanm` command)
 1. Run `./run.sh` command
 1. Open [localhost:8080](http://localhost:8080/) by your browser
 
@@ -23,6 +23,10 @@ Redirects internally by conditions of query of the request URL.
 ### `/template`
 
 Using template engine.
+
+---
+
+In addition, you can execute nginx module testing by entering `prove` command.
 
 ## Memo
 
@@ -49,3 +53,8 @@ A version of LuaRocks corresponding to OpenResty is 2.0.x; 2.1 or later version 
 ### template
 
 * [bungle/lua-resty-template](https://github.com/bungle/lua-resty-template)
+
+### test-nginx
+
+* [Test::Nginxでnginxモジュールのテストを自動化する - Qiita](http://qiita.com/cubicdaiya/items/36e10ed35848919dc05c)
+* [Test::Nginx::Socket - Socket-backed test scaffold for the Nginx C modules - metacpan.org](https://metacpan.org/pod/Test::Nginx::Socket)
