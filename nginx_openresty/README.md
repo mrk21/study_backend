@@ -3,8 +3,8 @@
 ## Running this projejct
 
 1. Run `git submodule update --init`
-1. Run `./install.sh` command(requires `cpanm` command)
-1. Run `./run.sh` command
+1. Run `make` command(requires `carton` and `prove` commands)
+1. Run `make run` command
 1. Open [localhost:8080](http://localhost:8080/) by your browser
 
 Other than above path, there also exist on the following:
@@ -26,7 +26,7 @@ Using template engine.
 
 ---
 
-In addition, you can execute nginx module testing by entering `prove` command.
+In addition, you can execute nginx module testing by entering `make test` command.
 
 ## Memo
 
@@ -58,3 +58,13 @@ A version of LuaRocks corresponding to OpenResty is 2.0.x; 2.1 or later version 
 
 * [Test::Nginxでnginxモジュールのテストを自動化する - Qiita](http://qiita.com/cubicdaiya/items/36e10ed35848919dc05c)
 * [Test::Nginx::Socket - Socket-backed test scaffold for the Nginx C modules - metacpan.org](https://metacpan.org/pod/Test::Nginx::Socket)
+
+### cpanm・carton・cpanfile
+
+* [Carton - Perl module 依存マネージャー(aka Perl用 Bundler) - perldoc.jp](http://perldoc.jp/docs/modules/Carton-v1.0.12/lib/Carton.pod)
+* [Big Sky :: cpanfile とは何か、なぜそれを使いたいのか](http://mattn.kaoriya.net/software/lang/perl/20130311120002.htm)
+* [cpanfile - PerlアプリケーションのためにCPANの依存性を記述するためのフォーマット - perldoc.jp](http://perldoc.jp/docs/modules/Module-CPANfile-1.0001/lib/cpanfile.pod)
+* [perlbrew や cpanm と carton - Qiita](http://qiita.com/hiyuzawa/items/ba32532a60f1e1353a8c)
+* [hayajoのTumblr, 最近のperlbrewなアプリの開発環境について](http://hayajo.tumblr.com/post/24030128304/perlbrew)
+* [Perl - Carton を使う - Qiita](http://qiita.com/bibio/items/4bf3978ede85c6996a24)
+* [Carton考2014 | おそらくはそれさえも平凡な日々](http://www.songmu.jp/riji/entry/2014-02-19-carton.html)
