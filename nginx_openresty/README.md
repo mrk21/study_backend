@@ -4,8 +4,8 @@
 
 1. Run `git submodule update --init`
 1. Run `make` command(requires `carton` and `prove` commands)
-1. Run `make run` command
-1. Open [localhost:8080](http://localhost:8080/) by your browser
+1. Run `make run` command(uses `sudo` command; you need to enter the password)
+1. Open [localhost](http://localhost/) by your browser
 
 Other than above path, there also exist on the following:
 
