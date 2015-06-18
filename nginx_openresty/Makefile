@@ -40,7 +40,8 @@ test:
 
 .PHONY: run
 run: openresty $(TMP_DIR)/logs $(TMP_DIR)/root
-	$(OPENRESTY_DIR)/nginx/sbin/nginx -p $(TMP_DIR) -c root/nginx.conf
+	echo "user $(shell id -un) $(shell id -gn);" > $(TMP_DIR)/nginx.user.conf
+	sudo $(OPENRESTY_DIR)/nginx/sbin/nginx -p $(TMP_DIR) -c root/nginx.conf
 
 
 $(TMP_DIR):
