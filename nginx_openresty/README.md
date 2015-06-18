@@ -17,8 +17,8 @@ Using Redis; needs to boot `redis-server` to local.
 
 Redirects internally by conditions of query of the request URL.
 
-* Does not redirect internally: [/conditional_internal_redirect](localhost:8080/conditional_internal_redirect)
-* Redirects internally: [/conditional_internal_redirect?internal_redirect](localhost:8080/conditional_internal_redirect?internal_redirect)
+* Does not redirect internally: [/conditional_internal_redirect](http://localhost/conditional_internal_redirect)
+* Redirects internally: [/conditional_internal_redirect?internal_redirect](http://localhost/conditional_internal_redirect?internal_redirect)
 
 ### `/template`
 
