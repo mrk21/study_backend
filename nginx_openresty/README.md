@@ -24,6 +24,10 @@ Redirects internally by conditions of query of the request URL.
 
 Using template engine.
 
+### `/upload`
+
+Does uploading a file and displaying the uploaded file content. it uses `lua-resty-upload` lua module.
+
 ---
 
 In addition, you can execute nginx module testing by entering `make test` command.
@@ -53,6 +57,10 @@ A version of LuaRocks corresponding to OpenResty is 2.0.x; 2.1 or later version 
 ### template
 
 * [bungle/lua-resty-template](https://github.com/bungle/lua-resty-template)
+
+### file uploading
+
+* [openresty/lua-resty-upload](https://github.com/openresty/lua-resty-upload)
 
 ### test-nginx
 

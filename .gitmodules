@@ -1,0 +1,3 @@
+[submodule "nginx_openresty/vendor/lua-resty-upload"]
+	path = nginx_openresty/vendor/lua-resty-upload
+	url = https://github.com/openresty/lua-resty-upload.git
