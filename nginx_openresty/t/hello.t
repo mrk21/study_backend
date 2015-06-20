@@ -9,7 +9,7 @@ __DATA__
 === TEST 1: hello.lua
 --- config
   location /hello_test {
-    content_by_lua_file '../../hello.lua';
+    content_by_lua_file '../../lua/hello.lua';
   }
 --- request
   GET /hello_test

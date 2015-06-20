@@ -39,8 +39,7 @@ test:
 	carton exec prove
 
 .PHONY: run
-run: openresty $(TMP_DIR)/logs $(TMP_DIR)/root
-	echo "user $(shell id -un) $(shell id -gn);" > $(TMP_DIR)/nginx.user.conf
+run: openresty $(TMP_DIR)/logs $(TMP_DIR)/upload $(TMP_DIR)/root $(TMP_DIR)/nginx.user.conf
 	sudo $(OPENRESTY_DIR)/nginx/sbin/nginx -p $(TMP_DIR) -c root/nginx.conf
 
 
@@ -50,8 +49,14 @@ $(TMP_DIR):
 $(TMP_DIR)/logs:
 	mkdir -p $@
 
+$(TMP_DIR)/upload:
+	mkdir -p $@
+
 $(TMP_DIR)/root:
 	ln -sf $(ROOT) $@
+
+$(TMP_DIR)/nginx.user.conf:
+	echo "user $(shell id -un) $(shell id -gn);" > $(TMP_DIR)/nginx.user.conf
 
 $(OPENRESTY_DIR):
 	cd $(TMP_DIR); \
