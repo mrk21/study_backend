@@ -5,19 +5,16 @@ local cjson = require "cjson"
 local method = ngx.req.get_method()
 
 if method == 'GET' then
-  ngx.header.content_type = 'text/html'
-  
-  local handle = io.popen('ls tmp/upload', 'r')
-  local content = handle:read("*all")
+  local handle = io.popen('ls tmp/upload','r')
+  local files = {}
+  while true do
+    local line = handle:read()
+    if line == nil then break end
+    table.insert(files, line)
+  end
   handle:close()
   
-  local files = {}
-  if content ~= nil then
-    for f in string.gmatch(content, '%S+') do
-      table.insert(files, f)
-    end
-  end
-  
+  ngx.header.content_type = 'text/html'
   template.render([[
     <!DOCTYPE html>
     <meta charset="UTF-8" />
@@ -32,20 +29,22 @@ if method == 'GET' then
     
     <ul>
     {% for i,f in ipairs(files) do %}
-      <li><a href="/upload/files/{{ f }}">{{ f }}</a></li>
+      <li>
+        <a href="/upload/files/{{ f }}">{{ f }}</a>
+        <form method="POST" action="/upload/files/{{ f }}" style="display: inline-block;">
+          <input type="submit" value="delete" />
+        </form>
+      </li>
     {% end %}
     </ul>
   ]], { files = files })
   
 elseif method == 'POST' then
-  local chunk_size = 5
-  local form, err = upload:new(chunk_size)
-  
+  local form, err = upload:new(100)
   if not form then
     ngx.log(ngx.ERR, "failed to new upload: ", err)
     ngx.exit(500)
   end
-  
   form:set_timeout(1000)
   
   local file = nil
@@ -60,18 +59,13 @@ elseif method == 'POST' then
     if typ == 'header' and res[1] == 'Content-Disposition' then
       local filename = string.match(res[2], 'filename="(.*)"')
       file = io.open('tmp/upload/' .. filename, 'w')
-    end
-    
-    if typ == 'body' then
+    elseif typ == 'body' then
       file:write(res)
-    end
-    
-    if typ == "eof" then
+    elseif typ == "eof" then
       file:close()
       break
     end
-    
   end
   
-  ngx.redirect '/upload'
+  ngx.redirect('/upload')
 end
