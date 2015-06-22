@@ -29,6 +29,7 @@ luarocks: openresty $(LUAROCKS)
 .PHONY: luamod
 luamod: luarocks
 	$(LUAROCKS) install lua-resty-template
+	$(LUAROCKS) install busted
 
 .PHONY: carton
 carton:
