@@ -28,6 +28,41 @@ Using template engine.
 
 Does uploading a file and displaying the uploaded file content. it uses `lua-resty-upload` lua module.
 
+### `/busted`
+
+Runs the specs by busted. You can specify the busted options by the `opts` GET parameter:
+
+```bash
+$ curl http://localhost/busted?opts=--list
+spec/hello_spec.lua:2: a test should succeed
+spec/hello_spec.lua:6: a test should fail
+spec/hello_spec.lua:10: a test should occer an error
+spec/hello_spec.lua:14: a test should pend
+```
+
+In addition, if you ran `bin/resty-busted` command, it will behave as same as `busted` command:
+
+```bash
+$ bin/resty-busted
+●◼✱◌
+1 success / 1 failure / 1 error / 1 pending : 0.002753 seconds
+
+Pending → spec/hello_spec.lua @ 15
+a test should pend
+spec/hello_spec.lua:15: pending message
+
+Failure → spec/hello_spec.lua @ 6
+a test should fail
+spec/hello_spec.lua:7: Expected to be truthy, but value was:
+(boolean) false
+
+Error → spec/hello_spec.lua @ 10
+a test should occer an error
+spec/hello_spec.lua:11: invalid
+```
+
+However, in this case, you need to run `make run` command previously.
+
 ---
 
 In addition, you can execute nginx module testing by entering `make test` command.
