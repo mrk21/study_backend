@@ -23,9 +23,17 @@ pp redis.eval(<<-LUA)
 LUA
 
 # The `eval` command can specify arguments that are `KEYS` and `ARGV`.
-# Both does not differ basically, but you need to use properly the both arguments in some case.
-# In the detail information of this matter, refer to the link listed below:
+# The both does not differ basically, but you need to use properly the both arguments in the some case.
+# In the detail information of this matter, you refer to the links listed below:
 # @see RedisのLua ScriptingのKEYSとARGVの違いについて調査 - ゆっくり備忘録, http://mitsuakikawamorita.com/blog/?p=2621
 pp redis.eval(<<-LUA, keys: [:key1, :key2], argv: [:arg1, :arg2]) # [["key1", "key2"], ["arg1", "arg2"]]
   return {KEYS, ARGV}
 LUA
+
+
+# Load Lua script
+pp sha1 = redis.script(:load, <<-LUA)
+  return {KEYS, ARGV}
+LUA
+
+pp redis.evalsha(sha1, keys: [:key1, :key2], argv: [:arg1, :arg2]) # [["key1", "key2"], ["arg1", "arg2"]]
