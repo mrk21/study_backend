@@ -1,4 +1,5 @@
 require 'pp'
+require 'digest/sha1'
 require 'bundler'
 Bundler.require
 
@@ -30,10 +31,17 @@ pp redis.eval(<<-LUA, keys: [:key1, :key2], argv: [:arg1, :arg2]) # [["key1", "k
   return {KEYS, ARGV}
 LUA
 
-
-# Load Lua script
-pp sha1 = redis.script(:load, <<-LUA)
+# Lua script pre loading
+# @see More Transactional Redis (2) - Lua Scripting in Action - 愛と勇気と缶ビール, http://zentoo.hatenablog.com/entry/20130718/1374152848
+script = <<-LUA
   return {KEYS, ARGV}
 LUA
 
-pp redis.evalsha(sha1, keys: [:key1, :key2], argv: [:arg1, :arg2]) # [["key1", "key2"], ["arg1", "arg2"]]
+sha1 = Digest::SHA1.hexdigest(script)
+
+begin
+  pp redis.evalsha(sha1, keys: [:key1, :key2], argv: [:arg1, :arg2]) # [["key1", "key2"], ["arg1", "arg2"]]
+rescue Redis::CommandError
+  sha1 = redis.script(:load, script)
+  retry
+end
