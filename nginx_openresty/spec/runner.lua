@@ -1,7 +1,4 @@
-local status = 200
-local response = ''
-
-original = {
+local original = {
   os = {
     exit = os.exit,
   },
@@ -15,52 +12,65 @@ original = {
   print = print
 }
 
-os.exit = function(code, opt)
-  if code ~= 0 then
-    status = 400
+local function setup()
+  os.exit = function(code, _)
+    error(code, 0)
   end
-  error('exit ' .. code)
-end
-
-print = function(...)
-  response = response .. table.concat({...}) .. "\n"
-end
-
-io.write = function(...)
-  response = response .. table.concat({...})
-end
-
-io.stderr = {
-  write = function(self, ...)
-    response = response .. table.concat({...})
+  
+  io.write = function(...)
+    ngx.print(...)
   end
-}
-
-function debug.getinfo(...)
-  local args = {...}
-  if args[1] == 2 and args[2] == 'Sf' then
-    return {
-      source = 'resty-busted'
-    }
-  else
-    return original.debug.getinfo(...)
+  
+  io.stderr = {
+    write = function(self, ...)
+      ngx.print(...)
+    end
+  }
+  
+  print = function(...)
+    ngx.say(...)
+  end
+  
+  debug.getinfo = function(...)
+    local args = {...}
+    local result = original.debug.getinfo(...)
+    if args[1] == 2 and args[2] == 'Sf' then
+      result.source = 'resty-busted'
+    end
+    return result
+  end
+  
+  arg = {}
+  local opts = ngx.req.get_uri_args().opts or ''
+  
+  for opt in string.gmatch(opts, '%S+') do
+    table.insert(arg, opt)
+  end
+  
+  if #arg == 0 then
+    table.insert(arg, '--output=plainTerminal')
   end
 end
 
-arg = {}
-local opts = ngx.req.get_uri_args().opts or ''
-
-for opt in string.gmatch(opts, '%S+') do
-  table.insert(arg, opt)
-end
-
-if #arg == 0 then
-  table.insert(arg, '--output=plainTerminal')
+local function terdown()
+  arg = nil
+  os.exit       = original.os.exit
+  io.write      = original.io.write
+  io.stderr     = original.io.stderr
+  debug.getinfo = original.debug.getinfo
+  print         = original.print
 end
 
 local runner = require 'busted.runner'
 
-pcall(runner, {batch = true})
-
-ngx.status = status
-ngx.print(response)
+return function(...)
+  local params = {...}
+  if #params == 0 then
+    params = {batch = true}
+  end
+  setup()
+  local _, result = pcall(runner, params)
+  result = result - 0
+  terdown()
+  return result
+end
