@@ -1,0 +1,4 @@
+#!/bin/bash
+cd $(dirname $0)/..
+
+$(pwd)/vendor/openresty/luajit/bin/luajit-2.1.0-alpha $(pwd)/bin/chunked.lua $*

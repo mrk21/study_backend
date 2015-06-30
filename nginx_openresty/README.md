@@ -63,6 +63,14 @@ spec/hello_spec.lua:11: invalid
 
 However, in this case, you need to run `make run` command previously.
 
+### `/chunked`
+
+Makes a chunked response. You will be able to see the chunked response graphically when you ran `bin/chunked` command.
+
+### `/set_by_lua`
+
+Shows a value of variable set by lua.
+
 ---
 
 In addition, you can execute nginx module testing by entering `make test` command.
