@@ -1,17 +1,21 @@
 describe('a test', function()
   it('should succeed', function()
+    ngx.sleep(0.1)
     assert.truthy(true)
   end)
   
   it('should fail', function()
+    ngx.sleep(0.1)
     assert.truthy(false)
   end)
   
   it('should occer an error', function()
+    ngx.sleep(0.1)
     error("invalid")
   end)
   
   it('should pend', function()
+    ngx.sleep(0.1)
     pending('pending message')
   end)
 end)

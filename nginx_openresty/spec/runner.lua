@@ -19,16 +19,19 @@ local function setup()
   
   io.write = function(...)
     ngx.print(...)
+    ngx.flush(true)
   end
   
   io.stderr = {
     write = function(self, ...)
       ngx.print(...)
+      ngx.flush(true)
     end
   }
   
   print = function(...)
     ngx.say(...)
+    ngx.flush(true)
   end
   
   debug.getinfo = function(...)
@@ -70,7 +73,7 @@ return function(...)
   end
   setup()
   local _, result = pcall(runner, params)
-  result = result - 0
+  result = tonumber(result)
   terdown()
   return result
 end
