@@ -1,3 +1,6 @@
 [submodule "nginx_openresty/vendor/lua-resty-upload"]
 	path = nginx_openresty/vendor/lua-resty-upload
 	url = https://github.com/openresty/lua-resty-upload.git
+[submodule "xbuild/vendor/xbuild"]
+	path = xbuild/vendor/xbuild
+	url = https://github.com/tagomoris/xbuild.git
