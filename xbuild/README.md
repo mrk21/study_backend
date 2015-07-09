@@ -10,7 +10,7 @@
 **CAUTION**
 
 * Do not specify a relative path the version argument of `xbuild/ruby-install` command. The reason is that the path is construed to a relative path from the xbuild directory
-* Do not append the path to the xbuild directory to `PATH` environment variable because `xbuild` command will not work. The reason is that it will conflict `xbuild/install` command and system `install` command
+* Do not append the path to the xbuild directory to `PATH` environment variable because `xbuild/ruby-install` command will not work. The reason is that it will conflict `xbuild/install` command and system `install` command
 
 ## See
 
