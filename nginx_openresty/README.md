@@ -71,6 +71,18 @@ Makes a chunked response. You will be able to see the chunked response graphical
 
 Shows a value of variable set by lua.
 
+### `/dynamic_proxy/:hostname/:path_with_query`
+
+Proxies to `http://:hostname/:path_with_query` dynamically.
+
+**example**
+
+```bash
+$ curl http://localhost/dynamic_proxy/qiita.com/mrk_21/items/3c35787418fbfce42103
+<!DOCTYPE html><html xmlns:og="http://ogp.me/ns#"><head><meta charset="UTF-8" /><title>AdventCalendar - CMake言語の基本構造 - Qiita</title>
+...
+```
+
 ---
 
 In addition, you can execute nginx module testing by entering `make test` command.
