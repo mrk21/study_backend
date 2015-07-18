@@ -1,0 +1,23 @@
+NAME = 'logrorate'
+
+task :default => [:build, :rm, :run, :exec]
+
+desc 'build the image'
+task :build do
+  sh "docker build -t #{NAME} ."
+end
+
+desc 'remove the container'
+task :rm do
+  sh "docker rm -f #{NAME}" rescue nil
+end
+
+desc 'run the container'
+task :run do
+  sh "docker run -itd --name #{NAME} #{NAME}"
+end
+
+desc 'execute a shell on the container'
+task :exec do
+  sh "docker exec -it #{NAME} su -l -c '/bin/bash -l -i'"
+end
