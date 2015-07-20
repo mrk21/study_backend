@@ -19,5 +19,5 @@ end
 
 desc 'execute a shell on the container'
 task :exec do
-  sh "docker exec -it #{NAME} su -l -c '/bin/bash -l -i'"
+  exec "docker exec -it #{NAME} su -l -c '/bin/bash -l -i'"
 end
