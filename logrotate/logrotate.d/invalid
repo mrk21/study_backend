@@ -1,0 +1,9 @@
+# will be occurred an error
+/var/log/not_existed.log {
+  
+}
+
+# will not be occurred an error
+/var/log/not_existed_with_missingok.log {
+  missingok
+}
