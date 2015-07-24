@@ -1,0 +1,6 @@
+<%=raw ->{
+  processor = Qiita::Markdown::Processor.new
+  result = File.read File.join(__dir__, '_index.md')
+  result = processor.call(result)
+  result[:output]
+}[] %>
