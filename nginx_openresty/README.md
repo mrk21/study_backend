@@ -83,6 +83,13 @@ $ curl http://localhost/dynamic_proxy/qiita.com/mrk_21/items/3c35787418fbfce4210
 ...
 ```
 
+### `/rails-app/cache`
+
+1. Run `cd rails-app` command
+1. Run `bundle install --path=vendor/bundle` command
+1. Run `bundle exec rails s`
+1. Open [localhost/rails-app/cache/5](http://localhost/rails-app/cache/5) by your browser
+
 ---
 
 In addition, you can execute nginx module testing by entering `make test` command.
