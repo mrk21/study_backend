@@ -3,7 +3,7 @@ ROOT := $(shell cd $(dir $(MAKEFILE)); pwd)
 TMP_DIR := $(ROOT)/tmp
 OPENRESTY_DIR := $(ROOT)/vendor/openresty
 LUAROCKS := $(OPENRESTY_DIR)/luajit/bin/luarocks
-OPENRESTY_VERSION := 1.7.10.1
+OPENRESTY_VERSION := 1.9.3.1
 LUAROCKS_VERSION := 2.0.12
 
 
