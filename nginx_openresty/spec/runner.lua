@@ -69,7 +69,7 @@ local runner = require 'busted.runner'
 return function(...)
   local params = {...}
   if #params == 0 then
-    params = {batch = true}
+    params = {standalone = false, batch = true}
   end
   setup()
   local _, result = pcall(runner, params)
