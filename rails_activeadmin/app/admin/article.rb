@@ -14,6 +14,7 @@ ActiveAdmin.register Article do
   permit_params :list, :of, :attributes, :on, :model
   
   # custom form
+  # @see [【随時更新】ActiveAdminのカスタマイズあれこれ - 49hack]{@link http://paranishian.hateblo.jp/entry/activeadmin/customize-example}
   form do |f|
     inputs 'Details' do
       input :title, label: 'Title'
