@@ -12,4 +12,17 @@ ActiveAdmin.register Article do
   #   permitted
   # end
   permit_params :list, :of, :attributes, :on, :model
+  
+  # custom form
+  form do |f|
+    inputs 'Details' do
+      input :title, label: 'Title'
+      input :content, label: 'Content'
+    end
+    panel 'Current' do
+      div raw "<b>Title</b>: #{resource.title}"
+      div raw "<b>Content</b>: #{resource.content}"
+    end
+    actions
+  end
 end
