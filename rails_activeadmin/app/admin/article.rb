@@ -26,4 +26,13 @@ ActiveAdmin.register Article do
     end
     actions
   end
+  
+  # @see [Active Admin | The administration framework for Ruby on Rails]{@link http://activeadmin.info/docs/6-show-pages.html}
+  show do |article|
+    attributes_table do
+      row :title
+      row :content
+    end
+    active_admin_comments
+  end
 end
