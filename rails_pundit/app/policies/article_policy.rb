@@ -1,26 +1,30 @@
 class ArticlePolicy < ApplicationPolicy
+  def index?
+    true
+  end
+  
   def show?
     true
   end
   
   def new?
-    self.user.admin?
+    true
   end
   
   def edit?
-    self.user.admin?
+    self.user.admin? or self.record.user == self.user
   end
   
   def create?
-    self.user.admin?
+    self.user.admin? or self.record.user == self.user
   end
   
   def update?
-    self.user.admin?
+    self.user.admin? or self.record.user == self.user
   end
   
   def destroy?
-    self.user.admin?
+    self.user.admin? or self.record.user == self.user
   end
   
   class Scope < Scope
