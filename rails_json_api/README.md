@@ -1,0 +1,21 @@
+# Rails JSON API
+
+Provided by active_model_serializers gem
+
+## Running this projejct
+
+1. Run `rbenv install` command
+1. Run `bundle install` command
+1. Run `./bin/rake db:setup` command
+1. Run `./bin/powder link` command
+1. Open [rails-json-api.dev/users](http://rails-json-api.dev/users) by your browser
+
+If you used direnv, you can omit prefix of "./bin/" for the commands.
+
+## See
+
+* [rails-api/active_model_serializers: ActiveModel::Serializer implementation and Rails hooks](https://github.com/rails-api/active_model_serializers)
+
+### direnv + pow
+
+* [bundle execしないでコマンドを実行する（direnv） – cohakim's blog REBORN!](http://cohakim.com/archives/6031)
