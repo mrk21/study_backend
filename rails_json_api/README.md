@@ -2,15 +2,15 @@
 
 Provided by active_model_serializers gem
 
-## Running this projejct
+## Running this project
 
-1. Run `rbenv install` command
-1. Run `bundle install` command
-1. Run `./bin/rake db:setup` command
-1. Run `./bin/powder link` command
+1. Enter `rbenv install` command
+1. Enter `bundle install` command
+1. Enter `./bin/rake db:setup` command
+1. Enter `./bin/powder link` command
 1. Open [rails-json-api.dev/users](http://rails-json-api.dev/users) by your browser
 
-If you used direnv, you can omit prefix of "./bin/" for the commands.
+If you used `direnv`, you can omit prefix of `./bin/` for the commands.
 
 ## See
 

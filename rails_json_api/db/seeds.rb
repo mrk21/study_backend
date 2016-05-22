@@ -1,3 +1,3 @@
-User.create(username: 'user1')
-User.create(username: 'user2')
-User.create(username: 'user3')
+3.times do |i|
+  User.create(username: "user#{i}", email: "user#{i}@example.com")
+end
