@@ -8,9 +8,14 @@ Provided by active_model_serializers gem
 1. Enter `bundle install` command
 1. Enter `./bin/rake db:setup` command
 1. Enter `./bin/powder link` command
-1. Open [rails-json-api.dev/users](http://rails-json-api.dev/users) by your browser
+1. Open [http://rails-json-api.dev/users](http://rails-json-api.dev/users) by your browser
 
 If you used `direnv`, you can omit prefix of `./bin/` for the commands.
+
+### Fields selecting
+
+access to [http://rails-json-api.dev/users?fields\[users\]\[\]=username](http://rails-json-api.dev/users?fields[users][]=username)
+
 
 ## See
 
