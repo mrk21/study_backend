@@ -16,6 +16,9 @@ If you used `direnv`, you can omit prefix of `./bin/` for the commands.
 
 access to [http://rails-json-api.dev/users?fields\[users\]\[\]=username](http://rails-json-api.dev/users?fields[users][]=username)
 
+### Association including
+
+access to [http://rails-json-api.dev/users?include=*](http://rails-json-api.dev/users?include=*)
 
 ## See
 

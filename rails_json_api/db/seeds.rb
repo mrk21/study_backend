@@ -1,3 +1,4 @@
 3.times do |i|
-  User.create(username: "user#{i}", email: "user#{i}@example.com")
+  user = User.create(username: "user#{i}", email: "user#{i}@example.com")
+  3.times{|j| user.notes.create(title: "note #{i} #{j}")}
 end
