@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    render json: User.all, adapter: :json_api, fields: params[:fields], include: params[:include]
+    render json: User.includes(:notes).page(1).per(1), adapter: :json_api
   end
   
   def show

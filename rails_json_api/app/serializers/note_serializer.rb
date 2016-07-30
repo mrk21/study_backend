@@ -1,5 +1,5 @@
 class NoteSerializer < ActiveModel::Serializer
-  has_one :user
+  belongs_to :user
   
   attributes :id
   attributes :title
