@@ -48,6 +48,11 @@ QueryType = GraphQL::ObjectType.define do
     description "Find a Post by ID"
     resolve ->(obj, args, ctx) { Post.find(args["id"]) }
   end
+
+  field :posts do
+    type types[!PostType]
+    resolve ->(obj, args, ctx) { Post.all }
+  end
 end
 
 Schema = GraphQL::Schema.define do
@@ -66,12 +71,55 @@ end
 #     }
 #   }
 # }
-pp Schema.execute <<-GRAPHQL
-  {
-    post(id: 1) {
-      id
-      title
-      comments { body created_at }
-    }
+print 'Query: '
+puts query = <<-GRAPHQL
+{
+  post(id: 1) {
+    id
+    title
+    comments { body created_at }
   }
+}
 GRAPHQL
+print 'Result: '
+pp Schema.execute(query)
+puts '='*100
+
+# {
+#   "data"=> {
+#     "posts"=> [
+#       {
+#         "id"=>"1",
+#         "title"=>"title 1",
+#         "comments"=> [
+#           {"body"=>"comment 1", "created_at"=>"%Y-%m-%d %H:%M:%S %z"}
+#         ]
+#       },
+#       {
+#         "id"=>"2",
+#         "title"=>"title 2",
+#         "comments"=> [
+#           {"body"=>"comment 2", "created_at"=>"%Y-%m-%d %H:%M:%S %z"}
+#         ]
+#       },
+#       {
+#         "id"=>"3",
+#         "title"=>"title 3",
+#         "comments"=> [
+#           {"body"=>"comment 3", "created_at"=>"%Y-%m-%d %H:%M:%S %z"}
+#         ]
+#       },
+#   }
+# }
+print 'Query: '
+puts query = <<-GRAPHQL
+{
+  posts {
+    id
+    title
+    comments { body created_at }
+  }
+}
+GRAPHQL
+print 'Result: '
+pp Schema.execute(query)

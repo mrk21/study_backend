@@ -1,3 +1,6 @@
 **/vendor/bundle/
 tmp/
 .envrc.local
+node_modules/
+npm-debug.log
+.DS_Store

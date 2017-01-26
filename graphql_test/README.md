@@ -5,8 +5,8 @@
 1. nodenv install
 2. npm install -g yarn
 3. yarn install
-4. node ./index.js
-5. open "http://localhost:8000/graphql?query={user(id:%221%22){id,name}}"
+4. yarn start
+5. open 'http://localhost:8000/graphql?query={user(id:"1"){id,name}}'
 
 ## Refer to
 
