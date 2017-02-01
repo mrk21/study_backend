@@ -44,6 +44,30 @@ Things you may want to cover:
     }
     ```
 
+## Memo
+
+**mutation**
+
+```
+mutation updatePost($input: UpdatePostInput!) {
+  result: updatePost(input: $input) {
+    post {
+      id
+      title
+    }
+  }
+}
+```
+
+```
+{
+  "input": {
+    "id": 1,
+    "title": "fuga"
+  }
+}
+```
+
 ## Refer to
 
 * [rmosolgo/graphql-ruby-demo: Use graphql-ruby to expose a Rails app](https://github.com/rmosolgo/graphql-ruby-demo)
