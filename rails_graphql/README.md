@@ -46,7 +46,7 @@ Things you may want to cover:
 
 ## Memo
 
-**mutation**
+### Mutation
 
 ```
 mutation updatePost($input: UpdatePostInput!) {
@@ -68,9 +68,26 @@ mutation updatePost($input: UpdatePostInput!) {
 }
 ```
 
+### Error Handling
+
+```ruby
+MySchema.rescue_from(ActiveRecord::RecordNotFound) { "An item could not be found" }
+```
+
+or
+
+```ruby
+MySchema = GraphQL::Schema.define do
+  rescue_from(ActiveRecord::RecordNotFound) { "An item could not be found" }
+end
+```
+
+* [Method: GraphQL::Schema::RescueMiddleware#rescue_from — Documentation for rmosolgo/graphql-ruby (master)](http://www.rubydoc.info/github/rmosolgo/graphql-ruby/GraphQL%2FSchema%2FRescueMiddleware%3Arescue_from)
+
 ## Refer to
 
 * [rmosolgo/graphql-ruby-demo: Use graphql-ruby to expose a Rails app](https://github.com/rmosolgo/graphql-ruby-demo)
 * [Introduction to GraphQL | GraphQL](http://graphql.org/learn/)
 * [GraphQL Ruby - Welcome](https://rmosolgo.github.io/graphql-ruby/)
 * [西日暮里.rbでGraphQL on RubyというLTをした - Please Drive Faster](http://joe-re.hatenablog.com/entry/2016/05/04/174742)
+* [Method: GraphQL::Schema::RescueMiddleware#rescue_from — Documentation for rmosolgo/graphql-ruby (master)](http://www.rubydoc.info/github/rmosolgo/graphql-ruby/GraphQL%2FSchema%2FRescueMiddleware%3Arescue_from)
