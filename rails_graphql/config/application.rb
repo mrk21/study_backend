@@ -15,6 +15,7 @@ module RailsGraphql
       Rails.root.join('app/api'),
       Rails.root.join('app/api/types'),
       Rails.root.join('app/api/queries'),
+      Rails.root.join('app/api/middlewares'),
     ]
   end
 end

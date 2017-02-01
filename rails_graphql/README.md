@@ -82,7 +82,28 @@ MySchema = GraphQL::Schema.define do
 end
 ```
 
-* [Method: GraphQL::Schema::RescueMiddleware#rescue_from — Documentation for rmosolgo/graphql-ruby (master)](http://www.rubydoc.info/github/rmosolgo/graphql-ruby/GraphQL%2FSchema%2FRescueMiddleware%3Arescue_from)
+* http://www.rubydoc.info/github/rmosolgo/graphql-ruby/GraphQL%2FSchema%2FRescueMiddleware%3Arescue_from
+
+### Middleware
+
+```ruby
+MySchema.middleware << GraphQL::Schema::TimeoutMiddleware.new(max_seconds: 2)
+```
+
+```ruby
+class RescueMiddleware
+  # Implement the requirement for {GraphQL::Schema::MiddlewareChain}
+  def call(*args)
+    begin
+      yield
+    rescue StandardError => err
+      attempt_rescue(err)
+    end
+  end
+end
+```
+
+https://github.com/rmosolgo/graphql-ruby/blob/master/lib/graphql/schema/rescue_middleware.rb
 
 ## Refer to
 

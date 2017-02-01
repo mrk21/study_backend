@@ -1,6 +1,6 @@
 ApiSchema = GraphQL::Schema.define do
   query GraphQL::ObjectType.define {
-    name 'Query'
+    name 'ApiQuery'
     description 'The query root of this schema'
 
     field :post, PostQuery::Show
@@ -8,12 +8,15 @@ ApiSchema = GraphQL::Schema.define do
   }
 
   mutation GraphQL::ObjectType.define {
-    name 'Mutation'
+    name 'ApiMutation'
     description 'The mutation root of this schema'
 
     field :updatePost, field: PostQuery::Update.field
   }
+end
 
+ApiSchema.middleware << CustomRescueMiddleware.new {
   rescue_from(ActiveRecord::RecordNotFound) { |e| e.message }
   rescue_from(ActiveRecord::RecordInvalid) { |e| e.message }
-end
+  rescue_from(StandardError) { '500 error!' }
+}
