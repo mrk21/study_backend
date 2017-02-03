@@ -1,3 +1,13 @@
-Post.create(title: 'title 1', body: 'body 1')
-Post.create(title: 'title 2', body: 'body 2')
-Post.create(title: 'title 3', body: 'body 3')
+user = User.create(
+  name: 'User 1',
+  email: 'user1@example.com',
+  password: 'password'
+)
+
+10.times do |i|
+  Post.create(
+    user: user,
+    title: "title #{i+1}",
+    body: "body #{i+1}"
+  )
+end

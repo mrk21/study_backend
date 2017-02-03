@@ -11,6 +11,13 @@ class QueriesController < ApplicationController
     options.permit!
     options = options.to_h.map { |k,v| [k.to_s.underscore.intern, v] }
     options = Hash[*options.flatten]
+    options[:context] = context
     [query, options]
+  end
+
+  def context
+    {
+      session: session
+    }
   end
 end

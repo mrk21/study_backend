@@ -156,6 +156,53 @@ GraphQL::InputType.accepts_definitions(camelized_input_field: CamelizedArgument,
 
 * [camelCase -> snake_case arguments? · Issue #187 · rmosolgo/graphql-ruby](https://github.com/rmosolgo/graphql-ruby/issues/187#issuecomment-233742521)
 
+### Queries and mutations
+
+```
+mutation createSession($login: CreateSessionInput!) {
+  createSession(input: $login) {
+    user {
+      id
+      name
+      email
+    }
+  }
+}
+query getPost($id: ID!) {
+  post(id: $id) {
+    id
+    title
+  }
+}
+query getPosts {
+  posts {
+    edges {
+      node {
+        id
+        title
+      }
+    }
+  }
+}
+mutation deleteSession($logout: DeleteSessionInput!) {
+  deleteSession(input: $logout) {
+    clientMutationId
+  }
+}
+```
+
+```
+{
+  "login": {
+    "email": "user1@example.com",
+    "password": "password"
+  },
+  "logout": {
+  },
+  "id": 1
+}
+```
+
 ## Refer to
 
 * [rmosolgo/graphql-ruby-demo: Use graphql-ruby to expose a Rails app](https://github.com/rmosolgo/graphql-ruby-demo)
