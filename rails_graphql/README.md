@@ -105,6 +105,38 @@ end
 
 https://github.com/rmosolgo/graphql-ruby/blob/master/lib/graphql/schema/rescue_middleware.rb
 
+### Connection
+
+This concept is for handling collections. It's defined by not GraphQL but Relay.
+
+**Data structure by GraphQL**
+
+```
+interface Connection {
+  pageInfo: PageInfo
+  edges: [Edge]
+}
+
+interface Edge {
+  cursor: String
+  node: Node!
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  startCursor: String
+  endCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+}
+```
+
+* [GraphQL入門 - 使いたくなるGraphQL - Qiita](http://qiita.com/bananaumai/items/3eb77a67102f53e8a1ad#%E3%82%88%E3%82%8A%E5%AE%9F%E8%B7%B5%E7%9A%84%E3%81%AA%E4%BD%BF%E3%81%84%E6%96%B9)
+* [Connection | Relay Docs](https://facebook.github.io/relay/docs/graphql-connections.html)
+
 ## Refer to
 
 * [rmosolgo/graphql-ruby-demo: Use graphql-ruby to expose a Rails app](https://github.com/rmosolgo/graphql-ruby-demo)
@@ -112,3 +144,5 @@ https://github.com/rmosolgo/graphql-ruby/blob/master/lib/graphql/schema/rescue_m
 * [GraphQL Ruby - Welcome](https://rmosolgo.github.io/graphql-ruby/)
 * [西日暮里.rbでGraphQL on RubyというLTをした - Please Drive Faster](http://joe-re.hatenablog.com/entry/2016/05/04/174742)
 * [Method: GraphQL::Schema::RescueMiddleware#rescue_from — Documentation for rmosolgo/graphql-ruby (master)](http://www.rubydoc.info/github/rmosolgo/graphql-ruby/GraphQL%2FSchema%2FRescueMiddleware%3Arescue_from)
+* [GraphQL入門 - 使いたくなるGraphQL - Qiita](http://qiita.com/bananaumai/items/3eb77a67102f53e8a1ad#%E3%82%88%E3%82%8A%E5%AE%9F%E8%B7%B5%E7%9A%84%E3%81%AA%E4%BD%BF%E3%81%84%E6%96%B9)
+* [Connection | Relay Docs](https://facebook.github.io/relay/docs/graphql-connections.html)

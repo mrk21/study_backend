@@ -5,13 +5,16 @@ ApiSchema = GraphQL::Schema.define do
 
     field :post, PostQuery::Show
     field :posts, PostQuery::Index
+    connection :postConnection, PostType.connection_type do
+      resolve ->(obj, args, ctx) { Post.all }
+    end
   }
 
   mutation GraphQL::ObjectType.define {
     name 'ApiMutation'
     description 'The mutation root of this schema'
 
-    field :updatePost, field: PostQuery::Update.field
+    field :updatePost, field: PostMutation::Update.field
   }
 end
 

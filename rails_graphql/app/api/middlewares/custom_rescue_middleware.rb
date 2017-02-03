@@ -14,20 +14,20 @@ class CustomRescueMiddleware
   def call(*args)
     begin
       yield
-    rescue StandardError => err
-      attempt_rescue(err)
+    rescue StandardError => e
+      attempt_rescue(e)
     end
   end
 
   private
 
-  def attempt_rescue(err)
-    handler = rescue_table.find { |handler| err.is_a? handler.first }
-    if handler
-      message = handler.second.call(err)
+  def attempt_rescue(e)
+    error_class, handler = rescue_table.find { |item| e.is_a? item.first }
+    if error_class
+      message = handler.call(e)
       GraphQL::ExecutionError.new(message)
     else
-      raise(err)
+      raise e
     end
   end
 end
