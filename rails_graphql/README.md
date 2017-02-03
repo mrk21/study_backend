@@ -137,6 +137,25 @@ type PageInfo {
 * [GraphQL入門 - 使いたくなるGraphQL - Qiita](http://qiita.com/bananaumai/items/3eb77a67102f53e8a1ad#%E3%82%88%E3%82%8A%E5%AE%9F%E8%B7%B5%E7%9A%84%E3%81%AA%E4%BD%BF%E3%81%84%E6%96%B9)
 * [Connection | Relay Docs](https://facebook.github.io/relay/docs/graphql-connections.html)
 
+### Helper
+
+GraphQL Helper can be defined by `GraphQL::BaseType.accepts_definitions` method.
+
+```ruby
+module CamelizedArgument
+  def self.call(target, argument_name, *args, &block)
+    # modify the incoming name:
+    camelized_field_name  = camelize(argument_name)
+    GraphQL::Define::AssignArgument.call(target, camelized_argument_name, *args, &block)
+  end 
+end
+
+GraphQL::Field.accepts_definitions(camelized_argument: CamelizedArgument)
+GraphQL::InputType.accepts_definitions(camelized_input_field: CamelizedArgument, camelized_argument: CamelizedArgument)
+```
+
+* [camelCase -> snake_case arguments? · Issue #187 · rmosolgo/graphql-ruby](https://github.com/rmosolgo/graphql-ruby/issues/187#issuecomment-233742521)
+
 ## Refer to
 
 * [rmosolgo/graphql-ruby-demo: Use graphql-ruby to expose a Rails app](https://github.com/rmosolgo/graphql-ruby-demo)
@@ -146,3 +165,4 @@ type PageInfo {
 * [Method: GraphQL::Schema::RescueMiddleware#rescue_from — Documentation for rmosolgo/graphql-ruby (master)](http://www.rubydoc.info/github/rmosolgo/graphql-ruby/GraphQL%2FSchema%2FRescueMiddleware%3Arescue_from)
 * [GraphQL入門 - 使いたくなるGraphQL - Qiita](http://qiita.com/bananaumai/items/3eb77a67102f53e8a1ad#%E3%82%88%E3%82%8A%E5%AE%9F%E8%B7%B5%E7%9A%84%E3%81%AA%E4%BD%BF%E3%81%84%E6%96%B9)
 * [Connection | Relay Docs](https://facebook.github.io/relay/docs/graphql-connections.html)
+* [camelCase -> snake_case arguments? · Issue #187 · rmosolgo/graphql-ruby](https://github.com/rmosolgo/graphql-ruby/issues/187#issuecomment-233742521)

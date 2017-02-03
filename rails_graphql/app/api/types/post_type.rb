@@ -4,10 +4,6 @@ PostType = GraphQL::ObjectType.define do
   field :id, !types.ID
   field :title, !types.String
   field :body, !types.String
-  field :createdAt, !types.String do
-    resolve ->(obj, args, ctx) { obj.created_at }
-  end
-  field :updatedAt, !types.String do
-    resolve ->(obj, args, ctx) { obj.updated_at }
-  end
+  field :createdAt, !types.String, resolve: AttrResolver.new(:created_at)
+  field :updatedAt, !types.String, resolve: AttrResolver.new(:updated_at)
 end
