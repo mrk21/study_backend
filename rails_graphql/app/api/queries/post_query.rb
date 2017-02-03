@@ -7,10 +7,11 @@ module PostQuery
     resolve ->(obj, args, ctx) { Post.find(args['id']) }
   end
 
-  Index = GraphQL::Field.define do
-    description 'Get all Post'
+  module Index
+    Type = PostType.connection_type
 
-    type types[!PostType]
-    resolve ->(obj, args, ctx) { Post.all }
+    def self.call(obj, args, ctx)
+      Post.all
+    end
   end
 end
