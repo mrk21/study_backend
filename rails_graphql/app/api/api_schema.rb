@@ -24,6 +24,6 @@ ApiSchema.middleware << CustomRescueMiddleware.new {
   rescue_from(ActiveRecord::RecordNotFound) { |e| e.message }
   rescue_from(ActiveRecord::RecordInvalid) { |e| e.message }
   rescue_from(SessionMutation::AuthenticationError) { |e| e.message }
-  rescue_from(SessionMutation::AuthorizationError) { |e| e.message }
+  rescue_from(Pundit::NotAuthorizedError) { |e| Rails.logger.error e.message; 'Does not permit!' }
   rescue_from(StandardError) { '500 error!' }
 }

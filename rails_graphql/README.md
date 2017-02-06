@@ -184,6 +184,14 @@ query getPosts {
     }
   }
 }
+mutation updatePost($input: UpdatePostInput!) {
+  updatePost(input: $input) {
+    post {
+      id
+      title
+    }
+  }
+}
 mutation deleteSession($logout: DeleteSessionInput!) {
   deleteSession(input: $logout) {
     clientMutationId
@@ -199,7 +207,11 @@ mutation deleteSession($logout: DeleteSessionInput!) {
   },
   "logout": {
   },
-  "id": 1
+  "id": 1,
+  "input": {
+    "id": 1,
+    "title": "hoge"
+  }
 }
 ```
 

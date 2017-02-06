@@ -9,7 +9,10 @@ class QueriesController < ApplicationController
     query = params.require(:query)
     options = params.slice(:variables, :operationName)
     options.permit!
-    options = options.to_h.map { |k,v| [k.to_s.underscore.intern, v] }
+    options = options.to_h
+      .stringify_keys
+      .transform_keys(&:underscore)
+      .symbolize_keys
     options = Hash[*options.flatten]
     options[:context] = context
     [query, options]
@@ -17,7 +20,12 @@ class QueriesController < ApplicationController
 
   def context
     {
-      session: session
+      session: session,
+      current_user: current_user
     }
+  end
+
+  def current_user
+    User.find_by(id: session[:current_user_id])
   end
 end

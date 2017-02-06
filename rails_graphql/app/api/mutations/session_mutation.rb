@@ -1,5 +1,4 @@
 module SessionMutation
-  class AuthorizationError < StandardError; end
   class AuthenticationError < StandardError; end
 
   Create = GraphQL::Relay::Mutation.define do

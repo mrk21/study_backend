@@ -10,6 +10,7 @@ module PostMutation
 
     resolve ->(obj, inputs, ctx) {
       post = Post.find(inputs['id'])
+      AuthorizationHelper.authorize(ctx, post, :update?)
       post.update!(title: inputs['title'])
       { post: post }
     }

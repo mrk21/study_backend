@@ -6,8 +6,7 @@ module PostQuery
     argument :id, !types.ID
     resolve ->(obj, args, ctx) {
       post = Post.find(args['id'])
-      current_user_id = ctx[:session][:current_user_id]
-      raise SessionMutation::AuthorizationError, 'Do not permit!' unless post.user.id == current_user_id
+      AuthorizationHelper.authorize(ctx, post, :show?)
       post
     }
   end
@@ -16,9 +15,7 @@ module PostQuery
     Type = PostType.connection_type
 
     def self.call(obj, args, ctx)
-      current_user_id = ctx[:session][:current_user_id]
-      raise SessionMutation::AuthorizationError, 'Do not permit!' unless current_user_id
-      Post.where(user_id: ctx[:session][:current_user_id])
+      AuthorizationHelper.policy_scope(ctx, Post)
     end
   end
 end
