@@ -47,7 +47,7 @@ RSpec.describe "Posts", type: :request do
       response.body
     }
 
-    it 'returns a post by specified `id`' do
+    it 'returns a post specified by `id`' do
       is_expected.to be_json_as({
         data: {
           post: {
