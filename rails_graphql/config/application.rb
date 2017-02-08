@@ -12,6 +12,9 @@ module RailsGraphql
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths += [
+      Rails.root.join('lib'),
+      Rails.root.join('lib/graphql/helpers'),
+      Rails.root.join('lib/graphql/middlewares'),
       Rails.root.join('app/api'),
       Rails.root.join('app/api/types'),
       Rails.root.join('app/api/queries'),

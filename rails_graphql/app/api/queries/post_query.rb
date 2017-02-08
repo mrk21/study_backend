@@ -4,18 +4,20 @@ module PostQuery
 
     type !PostType
     argument :id, !types.ID
+
     resolve ->(obj, args, ctx) {
       post = Post.find(args['id'])
-      AuthorizationHelper.authorize(ctx, post, :show?)
-      post
+      authorize ctx, post, :show?
     }
   end
 
   module Index
+    extend GQ::AuthorizationHelper::Methods
+
     Type = PostType.connection_type
 
     def self.call(obj, args, ctx)
-      AuthorizationHelper.policy_scope(ctx, Post)
+      policy_scope(ctx, Post)
     end
   end
 end

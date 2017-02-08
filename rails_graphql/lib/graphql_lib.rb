@@ -1,0 +1,2 @@
+module GraphQLLib
+end

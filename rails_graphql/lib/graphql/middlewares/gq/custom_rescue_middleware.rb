@@ -1,4 +1,4 @@
-class CustomRescueMiddleware
+class GQ::CustomRescueMiddleware
   attr_reader :rescue_table
 
   def initialize(&block)
