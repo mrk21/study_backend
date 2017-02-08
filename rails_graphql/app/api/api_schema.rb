@@ -22,6 +22,7 @@ ApiSchema = GraphQL::Schema.define do
   }
 end
 
+ApiSchema.middleware << GraphQL::Schema::TimeoutMiddleware.new(max_seconds: 5)
 ApiSchema.middleware << GQ::CustomRescueMiddleware.new {
   rescue_from(ActiveRecord::RecordNotFound) { |e| e.message }
   rescue_from(ActiveRecord::RecordInvalid) { |e| e.message }
@@ -29,8 +30,8 @@ ApiSchema.middleware << GQ::CustomRescueMiddleware.new {
   rescue_from(Pundit::NotAuthorizedError) { |e| Rails.logger.error e.message; 'Does not permit!' }
 
   rescue_from(StandardError) { |e|
-    pp e
-    puts e.backtrace.join("\n")
+    Rails.logger.error e.message
+    Rails.logger.error e.backtrace.join("\n")
     '500 error!'
   }
 }

@@ -17,7 +17,7 @@ module PostQuery
     Type = PostType.connection_type
 
     def self.call(obj, args, ctx)
-      policy_scope(ctx, Post)
+      policy_scope ctx, Post
     end
   end
 end

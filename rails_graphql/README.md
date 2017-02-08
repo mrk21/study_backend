@@ -1,27 +1,4 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Rails GraphQL
 
 ## How to start
 
@@ -168,18 +145,26 @@ mutation createSession($login: CreateSessionInput!) {
     }
   }
 }
+fragment PostFields on Post {
+  id
+  title
+}
 query getPost($id: ID!) {
   post(id: $id) {
-    id
-    title
+    ...PostFields
   }
 }
 query getPosts {
   posts {
+    pageInfo {
+      startCursor
+      endCursor
+  
+    }
     edges {
+      cursor
       node {
-        id
-        title
+        ...PostFields
       }
     }
   }
