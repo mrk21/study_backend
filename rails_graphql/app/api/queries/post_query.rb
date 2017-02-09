@@ -8,6 +8,7 @@ module PostQuery
     resolve ->(obj, args, ctx) {
       post = Post.find(args['id'])
       authorize ctx, post, :show?
+      post
     }
   end
 

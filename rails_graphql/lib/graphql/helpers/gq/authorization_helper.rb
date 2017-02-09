@@ -1,21 +1,23 @@
 module GQ::AuthorizationHelper
   module Methods
     def authorize(ctx, record, query)
-      _policy = policy(ctx, record)
-      unless _policy.public_send(query)
-        raise Pundit::NotAuthorizedError, query: query, record: record, policy: _policy
-      end
-      record
+      Pundit.authorize(ctx[:current_user], record, query)
     end
 
     def policy(ctx, record)
       Pundit.policy(ctx[:current_user], record)
     end
 
+    def policy!(ctx, record)
+      Pundit.policy!(ctx[:current_user], record)
+    end
+
     def policy_scope(ctx, scope)
-      user = ctx[:current_user]
-      policy_scope = Pundit::PolicyFinder.new(scope).scope
-      policy_scope.new(user, scope).resolve if policy_scope
+      Pundit.policy_scope(ctx[:current_user], scope)
+    end
+
+    def policy_scope!(ctx, scope)
+      Pundit.policy_scope!(ctx[:current_user], scope)
     end
   end
 
@@ -34,9 +36,21 @@ module GQ::AuthorizationHelper
     end
   end
 
+  module PolicyBang
+    def self.call(target, *args)
+      Helper.public_send :policy!, *args
+    end
+  end
+
   module PolicyScope
     def self.call(target, *args)
-      Helper.public_send.send :policy_scope, *args
+      Helper.public_send :policy_scope, *args
+    end
+  end
+
+  module PolicyScopeBang
+    def self.call(target, *args)
+      Helper.public_send :policy_scope!, *args
     end
   end
 
@@ -44,7 +58,9 @@ module GQ::AuthorizationHelper
     type.accepts_definitions(
       authorize: self::Authorize,
       policy: self::Policy,
+      policy!: self::PolicyBang,
       policy_scope: self::PolicyScope,
+      policy_scope!: self::PolicyScopeBang,
     )
   end
 end
